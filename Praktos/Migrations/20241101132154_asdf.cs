@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Praktos.Migrations
 {
     /// <inheritdoc />
-    public partial class cxz : Migration
+    public partial class asdf : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,6 +36,20 @@ namespace Praktos.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Genres", x => x.Id_Genres);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Photos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    File = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -140,6 +154,9 @@ namespace Praktos.Migrations
         {
             migrationBuilder.DropTable(
                 name: "BookRentalsHistory");
+
+            migrationBuilder.DropTable(
+                name: "Photos");
 
             migrationBuilder.DropTable(
                 name: "Books");
